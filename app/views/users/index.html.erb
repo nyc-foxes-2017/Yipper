@@ -1,0 +1,20 @@
+<div>
+
+<h1>Public Profile</h1>
+	<% @users.each do |user| %>
+	<div>
+		<a href="<%= user_path user %>">
+		<span><%= user.username %></span>
+		</a>
+		<p>
+			<%= user.yips.count %> Yips
+			<span><%= user.followers.count %> Followers</span>
+			<span><%= user.followeds.count %> Followers</span>
+		</p>
+		<% if user.yips.first %>
+		<p><%=user.yips.first.content %></p>
+		<% end %>
+		
+	</div>
+	<% end %>
+</div>

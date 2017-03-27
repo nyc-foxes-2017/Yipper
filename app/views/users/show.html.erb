@@ -1,0 +1,52 @@
+<% if current_user %>
+
+<div>
+	<h1>Write a Yip</h1>
+	<p>
+		<%= form_for @yip do |f| %>
+			<%= f.text_area :content, class: 'yipText' %>
+			<%= f.submit "Yip!" %>
+		<% end %>
+	</p>
+	
+</div>
+
+<div>
+	<h1><%= @user.username %> Yipper Profile</h1>
+	<div>
+	<span>Username: <%= @user.username %></span>
+	<p>
+		<%= @user.yips.count%> Yips
+		<span><%= @user.followers.count %> Followers</span>
+		<span><%= @user.followeds.count %> Following</span>
+	</p>
+
+	<%if current_user and @user != current_user %>
+		<%if current_user.following? @user %>
+			<%=form_tag relationship_path, method: :delete do %>
+				<%= submit_tag "Unfollow" %>
+			<% end %>
+		<% else %>
+			<%= form_for @relationship do %>
+				<%=hidden_field_tag :followed_id, @user.id %>
+				<%= submit_tag "Follow" %>
+			<% end %>
+		<% end %>
+	<% end %>
+		
+	</div>
+	
+</div>
+
+<div>
+	<h1>Your Yips</h1>
+		<% @user.yips.each do |yip| %>
+	<div>
+		<span><%= time_ago_in_words(yip.created_at) %></span>
+		<p> <%= yip.content %></p>
+
+	</div>
+	<% end %>
+</div>
+
+<%end %>

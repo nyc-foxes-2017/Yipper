@@ -1,0 +1,22 @@
+// Place all the styles related to the user controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#fox-leaping {
+	width: 250px;
+	height: auto;
+	margin-top: 20px;
+	margin-left: 0;
+	display: block;
+	 -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+    vertical-align: left;
+}
+
+.panel-right {
+	padding-left: 20px;
+}
