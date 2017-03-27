@@ -1,10 +1,12 @@
+<% if current_user %>
+
 <div>
-	<h1>Yip!</h1>
+	<h1>Write a Yip</h1>
 	<p>
-		<form>
-			<textarea name="text"></textarea>
-			<input type="submit" value="Submit Yip">
-		</form>
+		<%= form_for @yip do |f| %>
+			<%= f.text_area :content, class: 'yipText' %>
+			<%= f.submit "Yip!" %>
+		<% end %>
 	</p>
 	
 </div>
@@ -14,7 +16,7 @@
 	<div>
 	<span>Username: <%= @user.username %></span>
 	<p>
-		XX Yips
+		<%= @user.yips.count%> Yips
 		<span>XX Followers</span>
 		<span>XX Following</span>
 	</p>
@@ -25,8 +27,12 @@
 
 <div>
 	<h1>Your Yips</h1>
+		<% @user.yips.each do |yip| %>
 	<div>
-		Yips to come...
+		<span><%= time_ago_in_words(yip.created_at) %></span>
+		<p> <%= yip.content %></p>
 	</div>
-	
+	<% end %>
 </div>
+
+<%end %>

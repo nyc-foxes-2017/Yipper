@@ -14,6 +14,7 @@
 	            <img src="/gfx/logo.png">
 	            <span>Yipper</span>
 	            <% if current_user %>
+	            	<%= link_to "Public Yips", yips_path %>
 	            	<%= link_to "Log Out", sessions_destroy_path %>
 	            <%else %>
 	            	<%= form_tag sessions_create_path do %>
