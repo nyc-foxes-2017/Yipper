@@ -1,8 +1,8 @@
 
 <%= image_tag("fox_leaping.png", id:"fox-leaping") %>
-<div class="panel right">
+<div class="panel-right">
 <h1>Sign up for a Yipper account</h1>
-	<%= form_for @user do |f| %>
+	<%= form_for @user, html: {id: "registration-form"} do |f| %>
 		<% if @user.errors.any? %>
 		<ul>
 			<% @user.errors.full_messages.each do |message| %>
