@@ -1,0 +1,24 @@
+<% if current_user %>
+
+<div>
+	<h1>Write a Yip</h1>
+	<p>
+		<%= form_for @yip do |f| %>
+			<%= f.text_area :content, class: 'yipText' %>
+			<%= f.submit "Yip!" %>
+		<%end %>
+	</p>
+	
+</div>
+<%end %>
+
+<div>
+	<h1>Public Yips</h1>
+	<% @yips.each do |yip| %>
+		<div>
+			<a href="<%=user_path yip.user%>"><span><%= yip.user.username %></span></a>
+			<span><%= time_ago_in_words(yip.created_at)%></span>
+			<p> <%= yip.content %></p>
+		</div>
+	<% end%>
+</div>
