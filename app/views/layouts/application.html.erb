@@ -29,15 +29,17 @@
 	            <% end %>
 	        </div>
 	    </header>
-	    <div id="content">
-	        <div class="wrapper">
-	            <% flash.each do |name, msg| %>
-	                <%= content_tag :div, msg, class: "flash #{name}" %>
-	            <% end %>
-	            </div>
-	            </div>
+
 	            <%= image_tag("fox_profile.png", id:"fox-profile") %>
-	            <%= yield %>
+	  <div class="container">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+    
+     
+    </div>
+	           
 	 
 
   </body>

@@ -6,7 +6,7 @@ class YipsController < ApplicationController
 		if @yip.save
 			redirect_to current_user
 		else
-			flash[:error] = "Problem!"
+			flash[:error] = "You forgot to yip!"
 			redirect_to current_user
 		end
 	end

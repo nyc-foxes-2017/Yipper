@@ -3,13 +3,7 @@
 <div class="panel-right">
 <h1>Sign up for a Yipper account</h1>
 	<%= form_for @user, html: {id: "registration-form"} do |f| %>
-		<% if @user.errors.any? %>
-		<ul>
-			<% @user.errors.full_messages.each do |message| %>
-				<li><%= message %> </li>
-			<% end %>
-		</ul>
-	<% end %>
+	<%= render 'shared/errors' %>
 
 	<%= f.text_field :email, placeholder: "email" %>
 	<%= f.text_field :username, placeholder: "username" %>

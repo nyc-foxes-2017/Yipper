@@ -4,6 +4,7 @@
 	<h1>Write a Yip</h1>
 	<p>
 		<%= form_for @yip do |f| %>
+		<%= render 'shared/error_messages' %>
 			<%= f.text_area :content, class: 'yipText' %>
 			<%= f.submit "Yip!" %>
 		<%end %>
